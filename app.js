@@ -17,23 +17,33 @@ db.once('open', () => {
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use(express.urlencoded({ urlencoded: true }));
 
 app.get('/', (req, res) => {
   res.render('home');
 });
 
-app.get('/makestudent', async (req, res) => {
-  const student = new Student({
-    name: 'Suresh Kumar',
-    class: '12th',
-    address: 'Silanwad,Ladnun,Nagour',
-    fees: '20000',
-  });
+app.get('/school', async (req, res) => {
+  const students = await Student.find({});
+  res.render('school/index', { students });
+});
 
-  await student.save();
-  res.send(student);
+app.get('/school/new', (req, res) => {
+  res.render('school/new');
+});
+
+app.get('/school/:id', async (req, res) => {
+  const student = await Student.findById(req.params.id);
+  res.render('school/show', { student });
+});
+
+app.post('/school', async (req, res) => {
+  const stu = new Student(req.body.student);
+  await stu.save();
+  res.redirect(`school/${stu._id}`);
 });
 
 app.listen(3000, () => {
   console.log('Listining on port 3000');
 });
+
