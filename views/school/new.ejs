@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Student</title>
+  </head>
+  <body>
+    <h1>Create New Student</h1>
+
+    <form action="/school" method="POST">
+      <div>
+        <label for="class">Name</label>
+        <input type="text" id="class" name="student[class]" />
+      </div>
+      <div>
+        <label for="address">Address</label>
+        <input type="text" id="address" name="student[address]" />
+      </div>
+      <button>submit</button>
+    </form>
+    <a href="/school">All Students</a>
+  </body>
+</html>
