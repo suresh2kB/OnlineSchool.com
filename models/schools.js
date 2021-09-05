@@ -4,10 +4,11 @@ const Schema = mongoose.Schema;
 
 const StudentSchema = new Schema({
   name: String,
-  class: String,
   address: String,
+  image: String,
+  class: Number,
   description: String,
-  fees: String,
+  fees: Number,
 });
 
-module.exports = mongoose.model('Student',StudentSchema);
+module.exports = mongoose.model('Student', StudentSchema);
