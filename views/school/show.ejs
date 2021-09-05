@@ -1,13 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Description</title>
-  </head>
-  <body>
-    <h1><%= student.class %></h1>
-    <p><%=student.address%></p>
-  </body>
-</html>
+<% layout('layouts/boilerplate') %>
+
+<div class="row mb-3">
+  <div class="col-6 offset-3">
+    <div class="card">
+      <img src="<%=student.image %> " class="card-img-top" />
+      <div class="card-body">
+        <h5 class="card-title"><%=student.name %></h5>
+        <p class="card-text"><%=student.description %></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-muted"><%= student.address%></li>
+        <li class="list-group-item"><b>Class : </b><%=student.class %></li>
+        <li class="list-group-item"><b>Fees : </b><%=student.fees %></li>
+      </ul>
+      <div class="card-body">
+        <a class="card-link btn btn-info" href="/school/<%=student._id%>/edit"
+          >Edit</a
+        >
+        <form
+          class="d-inline"
+          action="/school/<%= student._id %>?_method=DELETE"
+          method="POST"
+        >
+          <button class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+      <footer class="card-footer text-muted">2 days ago</footer>
+    </div>
+  </div>
+</div>
