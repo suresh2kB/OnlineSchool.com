@@ -23,8 +23,17 @@ const seedDB = async () => {
 
   for (let i = 0; i < 50; i++) {
     const name_stu = getRandom(names);
+    const year = Math.floor(Math.random() * 12) + 1;
     const address_stu = getRandom(descriptors) + ' ' + getRandom(places);
-    const stu = new Student({ class: name_stu, address: address_stu });
+    const stu = new Student({
+      name: name_stu,
+      address: address_stu,
+      image: 'https://source.unsplash.com/collection/483251/',
+      class: year,
+
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident exercitationem nemo quod optio reprehenderit voluptatibus dolores sit, consequuntur soluta ab rem amet enim quae unde cupiditate itaque eligendi deleniti consequatur.',
+    });
     await stu.save();
   }
 };
