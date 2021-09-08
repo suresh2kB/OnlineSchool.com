@@ -1,0 +1,29 @@
+<% layout('layouts/boilerplate') %>
+<h1 class="text-center">Create New Property</h1>
+
+<div class="col-6 offset-3">
+  <form
+    action="/school/<%=data.id %>/class/<%=data.id1 %>/student/<%=data.id2%>/newproperty"
+    method="POST"
+  >
+    <div class="mb-3">
+      <label class="form-label" for="key">Key</label>
+      <input class="form-control" type="text" id="key" name="property[key]" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="value">Value</label>
+      <input
+        class="form-control"
+        type="text"
+        id="value"
+        name="property[value]"
+      />
+    </div>
+
+    <button class="btn btn-success">Add Property</button>
+  </form>
+  <a
+    href="/school/<%=data.id %>/newclass/<%=data.id1 %>/student/<%=data.id2 %> "
+    >Back To Student</a
+  >
+</div>
