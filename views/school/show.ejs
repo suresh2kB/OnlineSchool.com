@@ -27,5 +27,9 @@
       </div>
       <footer class="card-footer text-muted">2 days ago</footer>
     </div>
+    <a href="/school/<%=student._id %>/newclass">Add New class</a>
+    <% for (let num of student.subs){%>
+      <li><a href="/school/<%=student._id %>/newclass/<%=num._id %>"<li><%= num.name %></li></li>
+  <% }%>
   </div>
 </div>
