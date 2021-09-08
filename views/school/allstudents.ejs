@@ -1,0 +1,12 @@
+<% layout('layouts/boilerplate') %>
+<h1>All Students of <%=data.class %></h1>
+
+<% for (let num of data.students){%>
+
+<a href="/school/<%=data.id%>/newclass/<%=data.id1 %>/student/<%=num._id %>"
+  ><li><%=num.nameofstudent%></li></a
+>
+<% }%>
+<a href="/school/<%=data.id %>/class/<%=data.id1 %>/addStudent"
+  >Add New students to <%=data.class %>
+</a>
