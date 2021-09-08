@@ -1,0 +1,17 @@
+<% layout('layouts/boilerplate') %>
+<h1 class="text-center">Create New Student</h1>
+
+<div class="col-6 offset-3">
+  <form
+    action="/school/<%=data.id %> /class/<%=data.id1 %>/addstudent"
+    method="POST"
+  >
+    <div class="mb-3">
+      <label class="form-label" for="name">Name</label>
+      <input class="form-control" type="text" id="name" name="student[name]" />
+    </div>
+
+    <button class="btn btn-success">Add Student</button>
+  </form>
+  <a href="/school/<%=data.id %>/newclass/<%=data.id1 %>">All Students</a>
+</div>
