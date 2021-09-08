@@ -1,0 +1,18 @@
+<% layout('layouts/boilerplate') %>
+<h1><%=data.name %></h1>
+<h1>Hello World</h1>
+<p><%=data.id %></p>
+<p><%=data.id1 %></p>
+<p><%=data.id2 %></p>
+<p><%=data.student.nameofstudent %></p>
+<p><%=data.proper.length %></p>
+
+<h1>Hello World</h1>
+<% for(let i=0;i<data.proper.length-1;i+=2){%> 
+  <li><%=data.proper[i]%> : <%=data.proper[i+1] %> </li>
+  <% } %> 
+  <a
+    href="/school/<%=data.id %>/class/<%=data.id1 %>/student/<%=data.id2 %>/newproperty"
+    >Add New Property for <%=data.name %>
+  </a>
+
